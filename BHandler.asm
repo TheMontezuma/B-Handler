@@ -577,12 +577,24 @@ INSERT
     LDX #0
 NEXTPLACE
     LDA HATABS,X
+    CMP #'B'
     BEQ ESPOT
-    INX 
-    INX 
-    INX 
+    INX
+    INX
+    INX
+    CPX #$21
     BNE NEXTPLACE
-    BEQ INSERT
+
+    LDX #0
+NEXTPLACE2
+    LDA HATABS,X
+    BEQ ESPOT
+    INX
+    INX
+    INX
+    CPX #$21
+    BEQ EXIT
+    BNE NEXTPLACE2
 
 ESPOT
     LDA #'B'
