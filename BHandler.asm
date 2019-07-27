@@ -578,7 +578,7 @@ INSERT
 NEXTPLACE
     LDA HATABS,X
     CMP #'B'
-    BEQ ESPOT
+    BEQ EXIT
     INX
     INX
     INX
