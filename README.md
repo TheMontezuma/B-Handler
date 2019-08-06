@@ -3,17 +3,16 @@ Simple handler for a B: (Browser) CIO Atari device
 
 The following code in Atari Basic demonstrates the handler usage:
 
-
-`OPEN #3,8,0,"B:"
-
+```
+OPEN #3,8,0,"B:"
 PRINT #3;"http://atari.pl/hsc/?x=003000129"
-
-CLOSE #3`
-
+CLOSE #3
+```
 
 and an example in Assembler (JSR write2Bdevice):
- 
-`write2Bdevice
+
+```
+write2Bdevice
     JSR lookup
     BPL do_cio
     RTS
@@ -62,4 +61,5 @@ LOOP    LDA ICCHID,X
         TAX
         BPL LOOP
         LDY #-95 ; error code "TOO MANY CHANNELS OPEN"
-FOUND   RTS      ; X contains the offset for a channel`
+FOUND   RTS      ; X contains the offset for a channel
+```
