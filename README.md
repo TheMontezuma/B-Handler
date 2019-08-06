@@ -12,6 +12,24 @@ CLOSE #3
 and an example in Assembler (JSR write2Bdevice):
 
 ```
+IOCB   equ $0340
+ICCHID equ IOCB+0
+ICCMD  equ IOCB+2
+ICBAL  equ IOCB+4
+ICBAH  equ IOCB+5
+ICBLL  equ IOCB+8
+ICBLH  equ IOCB+9
+ICAX1  equ IOCB+10
+ICAX2  equ IOCB+11
+CIOV   equ $E456
+            
+url
+    .byte 'http://atari.pl/hsc/?x=106000000'
+url_len equ *-url
+
+browser_device
+    .byte 'B:'
+
 write2Bdevice
     JSR lookup
     BPL do_cio
